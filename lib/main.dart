@@ -1,10 +1,12 @@
-import 'package:flutter/cupertino.dart';
+import 'package:block_pattern/blocs/internet_bloc/internet_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:block_pattern/homeScreen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -12,9 +14,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+    return BlocProvider(
+      create: (context) => InternetBloc(),
+      child:  MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: HomeScreen(),
+      ),
     );
   }
 }
