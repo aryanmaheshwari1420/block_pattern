@@ -1,0 +1,4 @@
+Using bloc: Event is added to the bloc while state is emitted from the bloc
+		In bloc you can't emit state without adding event.
+Using Cubits : event stream doesn't exists in Cubit 
+		In cubit you can emit state without adding event.
