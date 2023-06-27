@@ -8,8 +8,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class SignUpPage extends StatelessWidget {
   SignUpPage({super.key});
 
- final TextEditingController _emailController = TextEditingController();
- final TextEditingController _passController  = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +79,6 @@ class SignUpPage extends StatelessWidget {
               if (state is SignInLoadingState) {
                 return const Center(child: CircularProgressIndicator());
               }
-
               return CupertinoButton(
                 onPressed: () {
                   if (state is SignInValidState) {
