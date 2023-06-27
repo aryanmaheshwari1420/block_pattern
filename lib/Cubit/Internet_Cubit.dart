@@ -1,5 +1,10 @@
-import 'dart:async';
 
+// if your classses is Empty you can make it as enum only when there is no data
+// and remember all of the state must be empty to defined enum
+
+// cubit is function based and bloc is event based
+
+import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
