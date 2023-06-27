@@ -1,7 +1,7 @@
 import 'dart:html';
 
-import 'package:block_pattern/form_validation/bloc/sign_in_event.dart';
-import 'package:block_pattern/form_validation/bloc/sign_in_state.dart';
+import 'package:block_pattern/form_validation/screens/sign_in/bloc/sign_in_event.dart';
+import 'package:block_pattern/form_validation/screens/sign_in/bloc/sign_in_state.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

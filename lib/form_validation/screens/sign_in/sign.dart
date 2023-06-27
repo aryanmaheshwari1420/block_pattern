@@ -1,17 +1,15 @@
-import 'package:block_pattern/form_validation/bloc/sign_in_bloc.dart';
-import 'package:block_pattern/form_validation/bloc/sign_in_event.dart';
-import 'package:block_pattern/form_validation/bloc/sign_in_state.dart';
+import 'package:block_pattern/form_validation/screens/sign_in/bloc/sign_in_bloc.dart';
+import 'package:block_pattern/form_validation/screens/sign_in/bloc/sign_in_event.dart';
+import 'package:block_pattern/form_validation/screens/sign_in/bloc/sign_in_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpPage extends StatelessWidget {
   SignUpPage({super.key});
 
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passController = TextEditingController();
+ final TextEditingController _emailController = TextEditingController();
+ final TextEditingController _passController  = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +24,7 @@ class SignUpPage extends StatelessWidget {
                   if (state is SignInErrorState) {
                     return Text(
                       state.errorMessage,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.red,
                       ),
                     );
@@ -37,7 +35,7 @@ class SignUpPage extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Center(
@@ -49,13 +47,13 @@ class SignUpPage extends StatelessWidget {
                   BlocProvider.of<SignInBloc>(context).add(SignInTextFieldEvent(
                       _emailController.text, _passController.text));
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "Enter the email",
                 ),
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Center(
@@ -67,19 +65,19 @@ class SignUpPage extends StatelessWidget {
                   BlocProvider.of<SignInBloc>(context).add(SignInTextFieldEvent(
                       _emailController.text, _passController.text));
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "Enter the password",
                 ),
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           BlocBuilder<SignInBloc, SigInState>(
             builder: (context, state) {
               if (state is SignInLoadingState) {
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               }
 
               return CupertinoButton(
@@ -91,7 +89,7 @@ class SignUpPage extends StatelessWidget {
                   }
                 },
                 color: (state is SignInValidState) ? Colors.blue : Colors.grey,
-                child: Text("Sign In"),
+                child: const Text("Sign In"),
               );
             },
           )

@@ -1,5 +1,5 @@
-import 'package:block_pattern/form_validation/bloc/sign_in_bloc.dart';
-import 'package:block_pattern/form_validation/sign.dart';
+import 'package:block_pattern/form_validation/screens/sign_in/bloc/sign_in_bloc.dart';
+import 'package:block_pattern/form_validation/screens/sign_in/sign.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
