@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "594230230762",
+    "project_id": "signinbloc-4e6f6",
+    "storage_bucket": "signinbloc-4e6f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594230230762:android:e9c7ec0f978379af952193",
+        "android_client_info": {
+          "package_name": "com.example.block_pattern"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594230230762-4fgsg9f69np0epi41kgoqjj89tfn0fla.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOsBZ9z3ua2UC9_AG-ZnL5z8eHlmwKFpE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594230230762-4fgsg9f69np0epi41kgoqjj89tfn0fla.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

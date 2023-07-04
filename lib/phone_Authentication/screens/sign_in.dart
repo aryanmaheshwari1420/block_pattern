@@ -32,11 +32,11 @@ class _SignInState extends State<SignIn> {
                     maxLength: 10,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                      hintText: "Enter the phone number",
+                    hintText: "Enter the phone number",
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 10, 
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width,
