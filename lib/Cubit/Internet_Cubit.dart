@@ -8,10 +8,11 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// ignore: constant_identifier_names
 enum InternetState { Initial, Lost, Gain }
 
 class InternetCubit extends Cubit<InternetState> {
-  Connectivity _connectivity = Connectivity();
+  final Connectivity _connectivity = Connectivity();
 
   StreamSubscription? connectivitySubscription;
 
