@@ -1,59 +1,81 @@
+import 'package:block_pattern/phone_Authentication/cubit/auth_cubit/auth_cubit.dart';
+import 'package:block_pattern/phone_Authentication/cubit/auth_cubit/auth_state.dart';
+import 'package:block_pattern/phone_Authentication/screens/verify_phone_number.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SignIn extends StatefulWidget {
-  const SignIn({super.key});
+class SignInScreen extends StatelessWidget {
 
-  @override
-  State<SignIn> createState() => _SignInState();
-}
-
-class _SignInState extends State<SignIn> {
-  TextEditingController phonenumber = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text("Sign In with Phone"),
       ),
       body: SafeArea(
         child: ListView(
           children: [
+
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+
                   TextField(
-                    controller: phonenumber,
+                    controller: phoneController,
                     maxLength: 10,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                    hintText: "Enter the phone number",
+                      border: OutlineInputBorder(),
+                      hintText: "Phone Number",
+                      counterText: ""
                     ),
                   ),
-                  SizedBox(
-                    height: 10, 
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    child: CupertinoButton(
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context) {
-                            return Container();
-                          },
+
+                  SizedBox(height: 10,),
+
+                  BlocConsumer<AuthCubit, AuthState>(
+                    listener: (context, state) {
+                      
+                      if(state is AuthCodeSentState) {
+                        Navigator.push(context, CupertinoPageRoute(
+                          builder: (context) => VerifyPhoneNumberScreen()
                         ));
-                      },
-                      child: Text("Sign In"),
-                    ),
-                  )
+                      }
+
+                    },
+                    builder: (context, state) {
+
+                      if(state is AuthLoadingState) {
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+
+                      return SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        child: CupertinoButton(
+                          onPressed: () {
+                            String phoneNumber = "+91" + phoneController.text;
+                            BlocProvider.of<AuthCubit>(context).sendOTP(phoneNumber);
+                          },
+                          color: Colors.blue,
+                          child: Text("Sign In"),
+                        ),
+                      );
+
+                    },
+                  ),
+
                 ],
               ),
-            )
+            ),
+
           ],
         ),
       ),
